@@ -1,8 +1,17 @@
 import xlsxwriter
+from web_crawler import title
 
-workbook = xlsxwriter.Workbook('hello.xlsx')
+
+workbook = xlsxwriter.Workbook('data.xlsx')
 worksheet = workbook.add_worksheet()
 
-worksheet.write('A1', 'Hello world')
+bold = workbook.add_format({'bold': True})
 
-workbook.close()
+worksheet.write('A1', 'Score', bold)
+
+row, col = 1, 0
+for num in (title):
+    worksheet.write(row, col, num)
+    row += 1
+
+workbook.close() 
